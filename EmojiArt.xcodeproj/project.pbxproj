@@ -16,6 +16,7 @@
 		DF970C1627F149F3001B0EA1 /* EmojiArtDocumentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF970C1527F149F3001B0EA1 /* EmojiArtDocumentVM.swift */; };
 		DF970C1827F14B43001B0EA1 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF970C1727F14B43001B0EA1 /* UtilityExtensions.swift */; };
 		DF970C1A27F14B4E001B0EA1 /* UtilityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF970C1927F14B4E001B0EA1 /* UtilityViews.swift */; };
+		DFD46562280F982B00092421 /* PaletteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD46561280F982B00092421 /* PaletteStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		DF970C1527F149F3001B0EA1 /* EmojiArtDocumentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocumentVM.swift; sourceTree = "<group>"; };
 		DF970C1727F14B43001B0EA1 /* UtilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		DF970C1927F14B4E001B0EA1 /* UtilityViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityViews.swift; sourceTree = "<group>"; };
+		DFD46561280F982B00092421 /* PaletteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				DF970C1327F14918001B0EA1 /* EmojiArtModel.Background.swift */,
 				DF970C1727F14B43001B0EA1 /* UtilityExtensions.swift */,
 				DF970C1927F14B4E001B0EA1 /* UtilityViews.swift */,
+				DFD46561280F982B00092421 /* PaletteStore.swift */,
 				DF970C0727F1473C001B0EA1 /* Assets.xcassets */,
 				DF970C0927F1473C001B0EA1 /* Preview Content */,
 			);
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF970C1A27F14B4E001B0EA1 /* UtilityViews.swift in Sources */,
+				DFD46562280F982B00092421 /* PaletteStore.swift in Sources */,
 				DF970C1627F149F3001B0EA1 /* EmojiArtDocumentVM.swift in Sources */,
 				DF970C0627F14737001B0EA1 /* EmojiArtDocumentView.swift in Sources */,
 				DF970C1827F14B43001B0EA1 /* UtilityExtensions.swift in Sources */,
