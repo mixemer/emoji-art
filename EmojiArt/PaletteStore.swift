@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Palette {
+struct Palette: Identifiable, Codable {
     var name: String
     var emojis: String
     var id: Int
@@ -22,10 +22,39 @@ struct Palette {
 class PaletteStore: ObservableObject {
     let name: String
     
-    @Published var palettes = [Palette]()
+    @Published var palettes = [Palette]() {
+        didSet {
+            storeInUserDefaults()
+        }
+    }
     
     init (named name: String) {
         self.name = name
+        restoreFromUserDefaults()
+        
+        if palettes.isEmpty {
+            print("using defined emojis")
+            insertPalette(named: "Vehicles", emojis: "🚗🚕🚙🚌🚑🚓🚐🚜🛵🚍🚠🚝🚈🚂✈️🛫🚀")
+            insertPalette(named: "Sport", emojis: "⚽️🏀🏈⚾️🥎🎾🏐🏉🥏🏸🪃🛝🏹🛷🛼⛷")
+            insertPalette(named: "Food", emojis: "🍋🍌🥬🧅🧇🍗🍔🍕🥫🍜🍙")
+            insertPalette(named: "Animals", emojis: "🐶🦊🐯🐽🐻🐹🙈🐒🦉🦄🐗")
+        } else {
+            print("using stored emojis")
+        }
+    }
+    
+    private var userDefaultsKey: String {
+        "PaletteStore" + name
+    }
+    private func storeInUserDefaults() {
+        UserDefaults.standard.set(try? JSONEncoder().encode(palettes), forKey: userDefaultsKey)
+    }
+    
+    private func restoreFromUserDefaults() {
+        if let jsonData = UserDefaults.standard.data(forKey: userDefaultsKey),
+           let decodedPalettes = try? JSONDecoder().decode(Array<Palette>.self, from: jsonData) {
+            palettes = decodedPalettes
+        }
     }
     
     // MARK: - Intends
@@ -47,7 +76,7 @@ class PaletteStore: ObservableObject {
         let unique = (palettes.max(by: { $0.id < $1.id })?.id ?? 0) + 1
         
         let palette = Palette(name: name, emojis: emojis ?? "", id: unique)
-        let safeIndex = min(max(index, 0), palettes.count - 1)
+        let safeIndex = min(max(index, 0), palettes.count)
         palettes.insert(palette, at: safeIndex)
     }
 }
